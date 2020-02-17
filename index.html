@@ -27,6 +27,7 @@
         let msg = document.getElementById("message").value;
         let username = document.querySelector('#username').value;
         client.emit("envoi_message", msg, username);
+        document.querySelector("#message").value="";
       });
 
 
@@ -45,7 +46,7 @@
         console.log(msg);
         document.querySelector(".messages").innerHTML += `
         <div>${msg.user} : ${msg.msg}</div>`;
-        document.querySelector("#message").value="";
+       
       });
     </script>
   </body>
