@@ -14,6 +14,7 @@ http.listen(5050, function() {
 });
 
 io.on("connection", function(client) {
+  console.log("user connected");
   client.on("disconnect", function() {
     console.log("user disconnected");
   });
