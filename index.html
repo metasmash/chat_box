@@ -30,7 +30,7 @@
       });
 
       client.on("reception_message", msg => {
-        //console.log(msg);
+        console.log(msg);
         document.querySelector(".messages").innerHTML += `
         <div>${msg.user} : ${msg.msg}</div>`;
         document.querySelector("#message").value="";
