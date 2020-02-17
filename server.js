@@ -4,6 +4,7 @@ var http = require("http").createServer(app);
 
 var io = require("socket.io")(http);
 app.use(express.static("./node_modules"));
+app.use(express.static("./static"));
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");

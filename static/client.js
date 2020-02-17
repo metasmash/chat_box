@@ -9,17 +9,15 @@ document.getElementById("envoyer").addEventListener("click", e => {
   document.querySelector("#message").value = "";
 });
 
-document
-  .querySelector("#message")
-  .addEventListener("keyup", function(event) {
-    // Number 13 is the "Enter" key on the keyboard
-    if (event.keyCode === 13) {
-      // Cancel the default action, if needed
-      event.preventDefault();
-      // Trigger the button element with a click
-      document.getElementById("envoyer").click();
-    }
-  });
+document.querySelector("#message").addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("envoyer").click();
+  }
+});
 
 client.on("reception_message", msg => {
   console.log(msg);
