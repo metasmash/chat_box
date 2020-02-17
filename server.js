@@ -18,11 +18,12 @@ io.on("connection", function(client) {
     console.log("user disconnected");
   });
 
-  client.on("envoi_message", (msg,username) => {
+  client.on("envoi_message", (msg, username) => {
     io.emit("reception_message", {
       user: username,
       msg: msg
     });
   });
 });
+// test
 //git --work-tree=/var/www/html/chatbox --git-dir=/var/repo/chatbox.git checkout -f
