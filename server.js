@@ -10,7 +10,7 @@ app.get("/", function(req, res) {
 });
 
 http.listen(5050, function() {
-  console.log("listening on *:3000");
+  console.log("listening on *:5050");
 });
 
 io.on("connection", function(client) {
