@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personnal Project</title>
+  </head>
+  <body>
+    <div class="messages">
+      <div class="message">Entrez votre nom d'utilisateur dans le premier champ:</div>
+    </div>
+    <div class="controles">
+        <textarea name="" id="username" cols="30" rows="1"></textarea><br>
+      <textarea name="" id="message" cols="30" rows="10"></textarea><br>
+      <button id="envoyer">Envoyer</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+
+    <script>
+      var client = io();
+      client.on("connect", e => {
+        console.log("Je suis " + client.id);
+      });
+      document.getElementById("envoyer").addEventListener("click", e => {
+        let msg = document.getElementById("message").value;
+        let username = document.querySelector('#username').value;
+        client.emit("envoi_message", msg, username);
+      });
+
+      client.on("reception_message", msg => {
+        console.log(msg);
+        document.querySelector(".messages").innerHTML += `
+        <div>${msg.user} : ${msg.msg}</div>`;
+      });
+    </script>
+  </body>
+</html>
