@@ -33,6 +33,7 @@
         console.log(msg);
         document.querySelector(".messages").innerHTML += `
         <div>${msg.user} : ${msg.msg}</div>`;
+        document.querySelector("#message").value="";
       });
     </script>
   </body>
