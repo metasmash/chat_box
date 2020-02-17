@@ -1,13 +1,22 @@
 var client = io();
+var sendBtn = document.getElementById("envoyer");
+
+
+
 client.on("connect", e => {
   console.log("Je suis " + client.id);
 });
-document.getElementById("envoyer").addEventListener("click", e => {
-  let msg = document.getElementById("message").value;
+
+
+
+sendBtn.addEventListener("click", e => {
+  let msg = document.querySelector("#message").value;
   let username = document.querySelector("#username").value;
   client.emit("envoi_message", msg, username);
   document.querySelector("#message").value = "";
 });
+
+
 
 document.querySelector("#message").addEventListener("keyup", function(event) {
   // Number 13 is the "Enter" key on the keyboard
@@ -19,8 +28,12 @@ document.querySelector("#message").addEventListener("keyup", function(event) {
   }
 });
 
+
+
 client.on("reception_message", msg => {
   console.log(msg);
-  document.querySelector(".messages").innerHTML += `
-  <div>${msg.user} : ${msg.msg}</div>`;
+  document.querySelector(".messages").innerHTML += '<div class="last_message"></div>';
+  let len = document.querySelectorAll('.last_message').length;
+  document.querySelectorAll(".last_message")[len-1].textContent += `
+${msg.user} : ${msg.msg}`;
 });
