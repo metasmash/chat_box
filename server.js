@@ -25,4 +25,3 @@ io.on("connection", function(client) {
     });
   });
 });
-//git --work-tree=/var/www/html/chatbox --git-dir=/var/repo/chatbox.git checkout -f
