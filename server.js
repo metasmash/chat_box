@@ -9,7 +9,7 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
-http.listen(3000, function() {
+http.listen(5050, function() {
   console.log("listening on *:3000");
 });
 
@@ -25,3 +25,4 @@ io.on("connection", function(client) {
     });
   });
 });
+//git --work-tree=/var/www/html/chatbox --git-dir=/var/repo/chatbox.git checkout -f
