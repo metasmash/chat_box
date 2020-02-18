@@ -1,6 +1,10 @@
 var express = require("express");
 var app = express();
 var http = require("http").createServer(app);
+const mongo = require("mongodb").MongoClient;
+
+// connect to mongo
+mongo.connect('mongodb://127.0.0.1');
 
 var io = require("socket.io")(http);
 app.use(express.static("./node_modules"));
